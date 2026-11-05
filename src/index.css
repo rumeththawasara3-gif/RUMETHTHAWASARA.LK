@@ -105,3 +105,43 @@
 .profile-glow-filter {
   animation: pulseOutlineGlow 4s ease-in-out infinite;
 }
+
+/* Infinite horizontal marquee animations */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+  will-change: transform;
+}
+
+/* Pauses when the user hovers over the track row */
+.marquee-row:hover .animate-marquee-infinite,
+.marquee-row:hover .animate-marquee-slow {
+  animation-play-state: paused !important;
+}
+
+/* Card hover glow and transition */
+.card-hover-glow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), 0 12px 30px rgba(0, 0, 0, 0.8);
+}

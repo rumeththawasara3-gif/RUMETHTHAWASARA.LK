@@ -122,6 +122,45 @@
     .glow-profile {
       animation: pulseGlow 4s ease-in-out infinite;
     }
+
+    /* Infinite horizontal marquee animations */
+    @keyframes marqueeScroll {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .animate-marquee-infinite {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+      will-change: transform;
+    }
+
+    .animate-marquee-slow {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 40s linear infinite;
+      will-change: transform;
+    }
+
+    /* Pause when user hovers over the track row */
+    .marquee-row:hover .animate-marquee-infinite,
+    .marquee-row:hover .animate-marquee-slow {
+      animation-play-state: paused !important;
+    }
+
+    /* Card hover glow and subtle upward lift */
+    .card-hover-glow {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card-hover-glow:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), 0 12px 30px rgba(0, 0, 0, 0.8);
+    }
   </style>
 </head>
 <body class="bg-neutral-900 text-neutral-100 min-h-screen relative antialiased selection:bg-white selection:text-neutral-900">
@@ -235,16 +274,21 @@
               </svg>
             </div>
 
-            <!-- Profile Frame with Glow Outline Filter -->
-            <div class="relative w-full h-full rounded-2xl overflow-hidden border border-neutral-700/60 bg-neutral-800 shadow-2xl">
+            <!-- Profile Cutout Container with Glow Outline Filter -->
+            <div class="relative w-full h-full flex items-center justify-center">
+              <div class="absolute inset-3 sm:inset-5 rounded-full bg-gradient-to-b from-neutral-800/60 via-neutral-900/80 to-neutral-950/90 border border-neutral-700/50 shadow-2xl pointer-events-none"></div>
               <!-- Profile Image: Points to ./profile.png, glowing outline effect via drop-shadow, dynamic scroll animation applied via JS -->
               <img 
                 id="profileImage"
                 src="./profile.png" 
-                alt="Rumeth Thawasara" 
-                class="w-full h-full object-cover object-center rounded-2xl glow-profile transition-transform duration-100 ease-out will-change-transform"
-                style="filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.2));"
+                alt="Rumeth Thawasara - Director, Producer, Audio Engineer & Digital Marketer" 
+                class="relative z-10 w-full h-full object-contain object-bottom glow-profile transition-transform duration-100 ease-out will-change-transform"
+                style="filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.55)) drop-shadow(0 0 38px rgba(255, 255, 255, 0.25)) drop-shadow(0 0 70px rgba(255, 255, 255, 0.12));"
               />
+              <div class="absolute -bottom-3 z-20 flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-neutral-700 text-xs font-mono text-neutral-300 shadow-xl">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span>AUDIOVISUAL & MARKETING</span>
+              </div>
             </div>
 
           </div>
@@ -254,7 +298,313 @@
       </div>
     </section>
 
-    <!-- Additional Content Sections to demonstrate dynamic scroll effect -->
+    <!-- SECTION 1: PROJECTS: MUSIC (HORIZONTAL INFINITE MARQUEE) -->
+    <section id="projects-music" class="py-20 border-t border-neutral-800 bg-neutral-950/60 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-neutral-400 font-semibold text-interactive flex items-center gap-2">
+            <span>Music</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1 text-interactive">
+            Projects
+          </h2>
+        </div>
+        <div class="text-xs text-neutral-400 text-interactive">
+          Hover over tracks to pause the continuous marquee
+        </div>
+      </div>
+
+      <!-- Marquee Row Container (Pauses when user hovers over the track row) -->
+      <div class="marquee-row relative w-full overflow-hidden py-4 cursor-pointer select-none">
+        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-neutral-900 to-transparent z-30"></div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 md:w-36 bg-gradient-to-l from-neutral-900 to-transparent z-30"></div>
+
+        <div class="animate-marquee-infinite flex gap-4 sm:gap-6 px-4">
+          <!-- 8 Uniform Square Cards, duplicated for seamless loop -->
+          <!-- Track 1: Siri parakum (EDM Remix) -->
+          <a href="https://youtu.be/Cts6ralAzqc" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/Cts6ralAzqc/hqdefault.jpg" alt="Siri parakum (EDM Remix)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">EDM Remix</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">Siri parakum (EDM Remix)</h3>
+            </div>
+          </a>
+
+          <!-- Track 2: HAWK | උකුZA -->
+          <a href="https://youtu.be/VumE2EuyPwQ" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-rose-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/VumE2EuyPwQ/hqdefault.jpg" alt="HAWK | උකුZA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Rap / Trap</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">HAWK | උකුZA</h3>
+            </div>
+          </a>
+
+          <!-- Track 3: Kaviyak -->
+          <a href="https://youtu.be/Ikp-XPefeuA" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-sky-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/Ikp-XPefeuA/hqdefault.jpg" alt="Kaviyak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Ambient / Poetry</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">Kaviyak</h3>
+            </div>
+          </a>
+
+          <!-- Track 4: DRILLA -->
+          <a href="https://youtu.be/hM2n9kEi5J8" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/hM2n9kEi5J8/hqdefault.jpg" alt="DRILLA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Drill</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">DRILLA</h3>
+            </div>
+          </a>
+
+          <!-- Track 5: L I F E -->
+          <a href="https://youtu.be/Iy0zf9FdTX0" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/Iy0zf9FdTX0/hqdefault.jpg" alt="L I F E" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Ambient Hip-Hop</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">L I F E</h3>
+            </div>
+          </a>
+
+          <!-- Track 6: KUSH -->
+          <a href="https://youtu.be/DZfFPNJb1Yk" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/DZfFPNJb1Yk/hqdefault.jpg" alt="KUSH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Rap</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">KUSH</h3>
+            </div>
+          </a>
+
+          <!-- Track 7: NOTHING -->
+          <a href="https://youtu.be/fp1iCLFSa1s" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-zinc-900 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/fp1iCLFSa1s/hqdefault.jpg" alt="NOTHING" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Atmospheric Beats</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">NOTHING</h3>
+            </div>
+          </a>
+
+          <!-- Track 8: KILL ME -->
+          <a href="https://youtu.be/rbAF31aCi-I" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/rbAF31aCi-I/hqdefault.jpg" alt="KILL ME" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">Dark Ambient</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">KILL ME</h3>
+            </div>
+          </a>
+
+          <!-- Loop repeat for smooth seamless marquee -->
+          <a href="https://youtu.be/Cts6ralAzqc" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-950/60 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/Cts6ralAzqc/hqdefault.jpg" alt="Siri parakum (EDM Remix)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-5 h-5 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">EDM Remix</span>
+              <h3 class="text-xs sm:text-sm md:text-base font-bold text-white leading-tight truncate">Siri parakum (EDM Remix)</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: YT LIVES (LARGE HORIZONTAL INFINITE MARQUEE) -->
+    <section id="yt-lives" class="py-20 border-t border-neutral-800 bg-neutral-900/40 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-rose-400 font-semibold text-interactive flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            <span>Broadcasts & Sessions</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1 text-interactive">
+            YT Lives
+          </h2>
+        </div>
+        <div class="text-xs text-neutral-400 text-interactive">
+          Hover over lives to pause the 16:9 widescreen marquee
+        </div>
+      </div>
+
+      <!-- Large Marquee Row Container (16:9 Widescreen, pauses on hover) -->
+      <div class="marquee-row relative w-full overflow-hidden py-4 cursor-pointer select-none">
+        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 md:w-40 bg-gradient-to-r from-neutral-900 to-transparent z-30"></div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 md:w-40 bg-gradient-to-l from-neutral-900 to-transparent z-30"></div>
+
+        <div class="animate-marquee-slow flex gap-5 sm:gap-7 px-4">
+          <!-- 5 Large 16:9 Cards -->
+          <!-- Live 1: NTE SINHALA GAMEPLAY -->
+          <a href="https://www.youtube.com/live/AOgCVgPQ_AI" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-72 sm:w-96 md:w-[460px] lg:w-[520px] aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-950/50 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/AOgCVgPQ_AI/hqdefault.jpg" alt="NTE SINHALA GAMEPLAY" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-neutral-700 text-xs font-mono text-neutral-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <span>LIVE ARCHIVE</span>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+              <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate">NTE SINHALA GAMEPLAY</h3>
+            </div>
+          </a>
+
+          <!-- Live 2: NTE EP2 -->
+          <a href="https://www.youtube.com/live/EhtQDMw7hp4" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-72 sm:w-96 md:w-[460px] lg:w-[520px] aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-violet-950/50 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/EhtQDMw7hp4/hqdefault.jpg" alt="NTE EP2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-neutral-700 text-xs font-mono text-neutral-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <span>LIVE ARCHIVE</span>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+              <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate">NTE EP2</h3>
+            </div>
+          </a>
+
+          <!-- Live 3: NTE EP3 -->
+          <a href="https://www.youtube.com/live/8cLOs8WXwEg" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-72 sm:w-96 md:w-[460px] lg:w-[520px] aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-950/50 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/8cLOs8WXwEg/hqdefault.jpg" alt="NTE EP3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-neutral-700 text-xs font-mono text-neutral-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <span>LIVE ARCHIVE</span>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+              <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate">NTE EP3</h3>
+            </div>
+          </a>
+
+          <!-- Live 4: ets 2 -->
+          <a href="https://www.youtube.com/live/xmaqoxyiQOs" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-72 sm:w-96 md:w-[460px] lg:w-[520px] aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-950/50 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/xmaqoxyiQOs/hqdefault.jpg" alt="ets 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-neutral-700 text-xs font-mono text-neutral-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <span>LIVE ARCHIVE</span>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+              <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate">ets 2</h3>
+            </div>
+          </a>
+
+          <!-- Live 5: ets 2 | බස් පිස්සෙක් වුනි මා -->
+          <a href="https://www.youtube.com/live/QDlRmtidkys" target="_blank" rel="noopener noreferrer" class="group relative flex-shrink-0 w-72 sm:w-96 md:w-[460px] lg:w-[520px] aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 card-hover-glow hover:border-neutral-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-teal-950/50 to-neutral-950 flex items-center justify-center">
+              <img src="https://img.youtube.com/vi/QDlRmtidkys/hqdefault.jpg" alt="ets 2 | බස් පිස්සෙක් වුනි මා" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-95" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-neutral-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
+                <svg class="w-6 h-6 fill-neutral-950 ml-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-neutral-700 text-xs font-mono text-neutral-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <span>LIVE ARCHIVE</span>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+              <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate">ets 2 | බස් පිස්සෙක් වුනි මා</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Content Sections -->
     <section id="directing" class="py-24 border-t border-neutral-800 bg-neutral-900/60">
       <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-3xl font-bold text-white text-interactive mb-4">Cinematic Direction & Sound Architecture</h2>
@@ -277,12 +627,86 @@
     </section>
   </main>
 
-  <!-- Inline JavaScript: Dynamic scroll animation (parallax & subtle scaling) -->
+  <!-- 1. FOOTER & SOCIALS -->
+  <footer class="border-t border-neutral-800/80 py-12 px-6 bg-neutral-950">
+    <div class="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-6 text-center">
+      
+      <!-- Minimal, Centered Horizontal Row (Flex-wrap on mobile so they don't overlap) -->
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+        
+        <!-- Instagram Link -->
+        <a 
+          href="https://www.instagram.com/rumeth_thawasara/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 hover:border-neutral-600 text-neutral-400 hover:text-white transition-all duration-200 card-hover-glow"
+          aria-label="Instagram"
+        >
+          <svg class="w-4 h-4 fill-none stroke-currentColor stroke-2" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          </svg>
+          <span class="text-xs font-medium">Instagram</span>
+        </a>
+
+        <!-- TikTok Link -->
+        <a 
+          href="https://www.tiktok.com/@rumeth_thawasara" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 hover:border-neutral-600 text-neutral-400 hover:text-white transition-all duration-200 card-hover-glow"
+          aria-label="TikTok"
+        >
+          <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.41a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.28 6.28 0 0 0 1.86-4.48V8.71a8.21 8.21 0 0 0 4.91 1.62v-3.4a4.85 4.85 0 0 1-1-.24z"/>
+          </svg>
+          <span class="text-xs font-medium">TikTok</span>
+        </a>
+
+        <!-- WhatsApp Link -->
+        <a 
+          href="https://wa.me/94717923228" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 hover:border-neutral-600 text-neutral-400 hover:text-white transition-all duration-200 card-hover-glow"
+          aria-label="WhatsApp"
+        >
+          <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <span class="text-xs font-medium">WhatsApp</span>
+        </a>
+
+        <!-- YouTube Link -->
+        <a 
+          href="https://youtube.com/@rumeth_thawasara" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 hover:border-neutral-600 text-neutral-400 hover:text-white transition-all duration-200 card-hover-glow"
+          aria-label="YouTube"
+        >
+          <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span class="text-xs font-medium">YouTube</span>
+        </a>
+
+      </div>
+
+      <!-- Copyright note -->
+      <div class="text-xs text-neutral-500 pt-2 text-interactive">
+        © 2026 Rumeth Thawasara · Nittabuwa, Sri Lanka · All Rights Reserved
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 2. INLINE JAVASCRIPT: Scroll Animations & Marquee Interactions -->
   <script>
     (function() {
+      // 1. Hero Profile Image Parallax & Dynamic Scaling on Scroll
       const profileImg = document.getElementById('profileImage');
-      if (!profileImg) return;
-
       let isTicking = false;
 
       function onScroll() {
@@ -290,12 +714,11 @@
 
         if (!isTicking) {
           window.requestAnimationFrame(function() {
-            // Parallax translation (subtle vertical shift)
-            const translateY = scrollPosition * 0.14;
-            // Subtle dynamic scaling (scales smoothly as user scrolls down)
-            const scale = Math.max(0.92, 1 - scrollPosition * 0.00025);
-
-            profileImg.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+            if (profileImg) {
+              const translateY = scrollPosition * 0.14;
+              const scale = Math.max(0.92, 1 - scrollPosition * 0.00025);
+              profileImg.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+            }
             isTicking = false;
           });
           isTicking = true;
@@ -303,6 +726,21 @@
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });
+
+      // 2. Marquee Hover Pause JavaScript Interaction (Supports both touch and desktop)
+      const marqueeRows = document.querySelectorAll('.marquee-row');
+      marqueeRows.forEach(function(row) {
+        const track = row.querySelector('.animate-marquee-infinite, .animate-marquee-slow');
+        if (!track) return;
+
+        row.addEventListener('mouseenter', function() {
+          track.style.animationPlayState = 'paused';
+        });
+
+        row.addEventListener('mouseleave', function() {
+          track.style.animationPlayState = 'running';
+        });
+      });
     })();
   </script>
 </body>
