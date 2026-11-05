@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #171717; /* neutral-900 */
+    color: #f5f5f5;
+  }
+}
+
+/* Subtle upward transform and glow effect for text elements */
+.text-interactive {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, text-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.text-interactive:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.45), 0 0 32px rgba(255, 255, 255, 0.2);
+}
+
+/* Keyframes for floating and wiggling graffiti elements */
+@keyframes floatWiggleA {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-4px, -8px) rotate(-3deg) scale(1.03);
+  }
+  50% {
+    transform: translate(3px, -14px) rotate(2deg) scale(0.98);
+  }
+  75% {
+    transform: translate(-3px, -6px) rotate(-1deg) scale(1.02);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes floatWiggleB {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translate(5px, -10px) rotate(4deg) scale(1.04);
+  }
+  65% {
+    transform: translate(-4px, -16px) rotate(-2deg) scale(0.97);
+  }
+  85% {
+    transform: translate(2px, -7px) rotate(1deg) scale(1.02);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes floatWiggleC {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translate(-6px, -6px) rotate(-5deg) scale(0.96);
+  }
+  50% {
+    transform: translate(4px, -12px) rotate(3deg) scale(1.05);
+  }
+  80% {
+    transform: translate(-2px, -18px) rotate(-2deg) scale(1);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes pulseOutlineGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.35))
+            drop-shadow(0 0 45px rgba(255, 255, 255, 0.15))
+            drop-shadow(0 0 80px rgba(160, 160, 160, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.6))
+            drop-shadow(0 0 65px rgba(255, 255, 255, 0.28))
+            drop-shadow(0 0 110px rgba(180, 180, 180, 0.2));
+  }
+}
+
+.animate-float-wiggle-1 {
+  animation: floatWiggleA 5s ease-in-out infinite;
+}
+
+.animate-float-wiggle-2 {
+  animation: floatWiggleB 6.5s ease-in-out infinite;
+}
+
+.animate-float-wiggle-3 {
+  animation: floatWiggleC 4.8s ease-in-out infinite;
+}
+
+.profile-glow-filter {
+  animation: pulseOutlineGlow 4s ease-in-out infinite;
+}

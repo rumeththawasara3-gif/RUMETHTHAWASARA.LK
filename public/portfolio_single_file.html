@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rumeth Thawasara | Director, Producer & Digital Marketer</title>
+  <meta name="description" content="Portfolio of Rumeth Thawasara, a Director, Producer, and Digital Marketer based in Nittabuwa, Sri Lanka.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            neutral: {
+              850: '#1f1f1f',
+              900: '#171717',
+              950: '#0c0c0c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Minimalist Dark Mode base styling */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #171717; /* deep charcoal black bg-neutral-900 */
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    /* Subtle hover effect (glow + slight upward transform) on all text elements */
+    .text-interactive {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, text-shadow 0.25s ease;
+      will-change: transform;
+    }
+    .text-interactive:hover {
+      transform: translateY(-2px);
+      color: #ffffff;
+      text-shadow: 0 0 16px rgba(255, 255, 255, 0.45), 0 0 32px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Floating graffiti continuous wiggle keyframe animations */
+    @keyframes floatWiggle1 {
+      0%, 100% {
+        transform: translate(0px, 0px) rotate(0deg) scale(1);
+      }
+      25% {
+        transform: translate(-5px, -8px) rotate(-4deg) scale(1.03);
+      }
+      50% {
+        transform: translate(4px, -14px) rotate(3deg) scale(0.97);
+      }
+      75% {
+        transform: translate(-3px, -6px) rotate(-1deg) scale(1.02);
+      }
+    }
+
+    @keyframes floatWiggle2 {
+      0%, 100% {
+        transform: translate(0px, 0px) rotate(0deg) scale(1);
+      }
+      30% {
+        transform: translate(6px, -10px) rotate(5deg) scale(1.05);
+      }
+      65% {
+        transform: translate(-5px, -16px) rotate(-3deg) scale(0.96);
+      }
+      85% {
+        transform: translate(3px, -6px) rotate(2deg) scale(1.02);
+      }
+    }
+
+    @keyframes floatWiggle3 {
+      0%, 100% {
+        transform: translate(0px, 0px) rotate(0deg) scale(1);
+      }
+      20% {
+        transform: translate(-6px, -6px) rotate(-6deg) scale(0.95);
+      }
+      50% {
+        transform: translate(5px, -12px) rotate(4deg) scale(1.04);
+      }
+      80% {
+        transform: translate(-2px, -18px) rotate(-2deg) scale(1);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.35))
+                drop-shadow(0 0 45px rgba(255, 255, 255, 0.15));
+      }
+      50% {
+        filter: drop-shadow(0 0 32px rgba(255, 255, 255, 0.6))
+                drop-shadow(0 0 70px rgba(255, 255, 255, 0.3));
+      }
+    }
+
+    .animate-graffiti-1 {
+      animation: floatWiggle1 5s ease-in-out infinite;
+    }
+    .animate-graffiti-2 {
+      animation: floatWiggle2 6.5s ease-in-out infinite;
+    }
+    .animate-graffiti-3 {
+      animation: floatWiggle3 4.8s ease-in-out infinite;
+    }
+    .glow-profile {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen relative antialiased selection:bg-white selection:text-neutral-900">
+
+  <!-- Ambient Backdrop Glow -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-neutral-800/40 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-[-5%] left-[-5%] w-[450px] h-[450px] bg-neutral-800/30 rounded-full blur-[130px]"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-neutral-900/80 border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
+      <a href="#hero" class="text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 text-interactive">
+        Rumeth Thawasara
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
+        <a href="#directing" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Directing</a>
+        <a href="#audio" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Audio Production</a>
+        <a href="#marketing" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Digital Marketing</a>
+        <a href="#contact" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="#contact" class="px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-neutral-900 bg-white rounded-md hover:bg-neutral-200 transition-colors whitespace-nowrap">
+          Direct Inquiry
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="relative z-10">
+    <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center justify-center px-6 py-12 lg:py-20 max-w-7xl mx-auto">
+      
+      <!-- Responsive Mobile-First Container:
+           On mobile: flex-col-reverse (image on top, text underneath)
+           On desktop: md:flex-row 50/50 side-by-side split -->
+      <div class="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 lg:gap-16">
+        
+        <!-- Left Column (Text) -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center space-y-6 lg:pr-6">
+          
+          <!-- Origin & Focus Tag -->
+          <div class="flex items-center gap-2 text-xs uppercase tracking-wider text-neutral-400 font-medium text-interactive">
+            <span>Nittabuwa, Sri Lanka</span>
+            <span aria-hidden="true" class="text-neutral-600">·</span>
+            <span>Director & Audio Engineer</span>
+          </div>
+
+          <!-- Big Bold Header -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] text-interactive">
+            Rumeth Thawasara
+          </h1>
+
+          <!-- Bio Text -->
+          <p class="text-base sm:text-lg text-neutral-300 leading-relaxed font-normal text-interactive">
+            Rumeth Thawasara (born July 12, 2008) is a Director, Producer, and Digital Marketer based in Nittabuwa, Sri Lanka. As a multidisciplinary creative professional, he bridges the gap between high-end audiovisual production and strategic digital marketing.
+          </p>
+
+          <!-- Second Paragraph -->
+          <p class="text-sm sm:text-base text-neutral-400 leading-relaxed text-interactive">
+            He specializes in delivering cinematic visuals for commercial advertising and music videos. In addition to his visual directorial work, Rumeth operates as a dedicated audio engineer, with a distinct focus on producing and engineering sound for the rap and ambient music genres. By combining commercial marketing strategies with complete audiovisual production, he controls the entire creative direction of a project from the initial sound to the final visual cut.
+          </p>
+
+          <!-- Actions -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a href="#directing" class="px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium rounded-lg border border-neutral-700 hover:border-neutral-500 transition-all flex items-center gap-2 text-interactive">
+              <span>Explore Directorial Works</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#audio" class="px-6 py-3 bg-transparent hover:bg-neutral-800/60 text-neutral-300 hover:text-white text-sm font-medium rounded-lg border border-neutral-800 hover:border-neutral-600 transition-all text-interactive">
+              Sound Production
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column (Image & Effects) -->
+        <div class="w-full md:w-1/2 flex items-center justify-center relative p-4 sm:p-8">
+          
+          <!-- Image Wrapper with Floating Graffiti SVGs -->
+          <div class="relative w-full max-w-[340px] sm:max-w-[400px] aspect-square flex items-center justify-center">
+
+            <!-- Graffiti 1: Floating Star (Top-Left) -->
+            <div class="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 z-20 pointer-events-none animate-graffiti-1">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none" class="w-10 h-10 sm:w-14 sm:h-14 text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
+                <path d="M50 0 C49 32 32 49 0 50 C32 51 49 68 50 100 C51 68 68 51 100 50 C68 49 51 32 50 0 Z" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <!-- Graffiti 2: Floating Arrow pointing to profile (Top-Right) -->
+            <div class="absolute -top-8 -right-4 sm:-top-10 sm:-right-8 z-20 pointer-events-none animate-graffiti-2">
+              <svg width="70" height="70" viewBox="0 0 100 100" fill="none" class="w-12 h-12 sm:w-16 sm:h-16 text-neutral-200 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] -rotate-12">
+                <path d="M85 15 C65 10 30 25 25 65" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <path d="M15 50 L25 67 L42 62" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Graffiti 3: Audio Waveform Scribble (Bottom-Left) -->
+            <div class="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 z-20 pointer-events-none animate-graffiti-3">
+              <svg width="110" height="50" viewBox="0 0 120 50" fill="none" class="w-20 h-10 sm:w-28 sm:h-12 text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]">
+                <path d="M5 25 Q15 25 20 10 T35 40 T50 5 T65 45 T80 15 T95 35 T105 25 T115 25" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Graffiti 4: Viewfinder Corner Doodle (Bottom-Right) -->
+            <div class="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-8 z-20 pointer-events-none animate-graffiti-1">
+              <svg width="70" height="70" viewBox="0 0 80 80" fill="none" class="w-12 h-12 sm:w-14 sm:h-14 text-neutral-300 drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+                <path d="M65 40 V65 H40" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 40 L34 44 L30 48 L26 44 Z" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <!-- Profile Frame with Glow Outline Filter -->
+            <div class="relative w-full h-full rounded-2xl overflow-hidden border border-neutral-700/60 bg-neutral-800 shadow-2xl">
+              <!-- Profile Image: Points to ./profile.png, glowing outline effect via drop-shadow, dynamic scroll animation applied via JS -->
+              <img 
+                id="profileImage"
+                src="./profile.png" 
+                alt="Rumeth Thawasara" 
+                class="w-full h-full object-cover object-center rounded-2xl glow-profile transition-transform duration-100 ease-out will-change-transform"
+                style="filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.2));"
+              />
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Additional Content Sections to demonstrate dynamic scroll effect -->
+    <section id="directing" class="py-24 border-t border-neutral-800 bg-neutral-900/60">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-white text-interactive mb-4">Cinematic Direction & Sound Architecture</h2>
+        <p class="text-neutral-400 max-w-2xl text-interactive">
+          Harmonizing high-end cinematography with custom rap and ambient audio engineering for complete creative control.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 border-t border-neutral-800 bg-neutral-950">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-white text-interactive">Direct Inquiries</h3>
+          <p class="text-sm text-neutral-400 text-interactive">Nittabuwa, Sri Lanka · Commercial visual & audio productions</p>
+        </div>
+        <a href="mailto:rumeththawasara3@gmail.com" class="px-6 py-3 bg-white text-neutral-900 font-semibold rounded-lg hover:bg-neutral-200 transition-colors">
+          Contact Rumeth
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Inline JavaScript: Dynamic scroll animation (parallax & subtle scaling) -->
+  <script>
+    (function() {
+      const profileImg = document.getElementById('profileImage');
+      if (!profileImg) return;
+
+      let isTicking = false;
+
+      function onScroll() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (!isTicking) {
+          window.requestAnimationFrame(function() {
+            // Parallax translation (subtle vertical shift)
+            const translateY = scrollPosition * 0.14;
+            // Subtle dynamic scaling (scales smoothly as user scrolls down)
+            const scale = Math.max(0.92, 1 - scrollPosition * 0.00025);
+
+            profileImg.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+            isTicking = false;
+          });
+          isTicking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
