@@ -162,6 +162,152 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Hidden Keystroke Easter Egg ('noriko' with Sakura rain and massive cursive text)
+  useEffect(() => {
+    let keyBuffer = '';
+    let fadeOutTimer: ReturnType<typeof setTimeout>;
+    let removeTimer: ReturnType<typeof setTimeout>;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Track single character key inputs
+      if (e.key && e.key.length === 1) {
+        keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-6);
+
+        // Case-insensitive exact match of 'noriko'
+        if (keyBuffer === 'noriko') {
+          keyBuffer = '';
+
+          // 1. Remove any previous overlay
+          const existingOverlay = document.getElementById('norikoEasterEggOverlay');
+          if (existingOverlay && existingOverlay.parentNode) {
+            existingOverlay.parentNode.removeChild(existingOverlay);
+          }
+
+          // 2. Full-Screen Centered Overlay Container
+          const overlay = document.createElement('div');
+          overlay.id = 'norikoEasterEggOverlay';
+          overlay.className = 'fixed inset-0 z-50 pointer-events-none overflow-hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000';
+          overlay.style.background = 'radial-gradient(circle at center, rgba(12, 12, 12, 0.5) 0%, rgba(0, 0, 0, 0.72) 100%)';
+          overlay.style.backdropFilter = 'blur(1px)';
+
+          // 3. Sakura Rain Effect: 45 petals with random swaying, durations (4s-8s), delays (0s-3.5s)
+          const petalsContainer = document.createElement('div');
+          petalsContainer.className = 'absolute inset-0 pointer-events-none overflow-hidden';
+          const sakuraChars = ['🌸', '🌸', '🌸', '🌸', '💮'];
+
+          for (let i = 0; i < 48; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'sakura-petal';
+            petal.textContent = sakuraChars[Math.floor(Math.random() * sakuraChars.length)];
+
+            const leftPos = Math.random() * 100;
+            const duration = 4 + Math.random() * 4;
+            const delay = Math.random() * 3.5;
+            const drift = (Math.random() - 0.5) * 220;
+            const rot = (Math.random() > 0.5 ? 1 : -1) * (180 + Math.random() * 540);
+            const fontSize = 16 + Math.random() * 18;
+            const opacity = 0.65 + Math.random() * 0.35;
+
+            petal.style.left = `${leftPos}%`;
+            petal.style.fontSize = `${fontSize}px`;
+            petal.style.opacity = `${opacity}`;
+            petal.style.setProperty('--sakura-duration', `${duration}s`);
+            petal.style.setProperty('--sakura-delay', `${delay}s`);
+            petal.style.setProperty('--sakura-drift', `${drift}px`);
+            petal.style.setProperty('--sakura-rot', `${rot}deg`);
+            petal.style.animationDuration = `${duration}s`;
+            petal.style.animationDelay = `${delay}s`;
+
+            petalsContainer.appendChild(petal);
+          }
+          overlay.appendChild(petalsContainer);
+
+          // 4. Massive Centered Stylized Text
+          const textContainer = document.createElement('div');
+          textContainer.className = 'relative z-10 px-6 text-center select-none';
+
+          const heading = document.createElement('h1');
+          heading.className = 'text-6xl md:text-8xl lg:text-9xl text-pink-400 drop-shadow-[0_0_35px_rgba(244,114,182,0.85)] tracking-wide leading-tight';
+          heading.style.fontFamily = "'Great Vibes', 'Dancing Script', cursive";
+          heading.textContent = 'Dedicated to Noriko';
+
+          const subtext = document.createElement('p');
+          subtext.className = 'text-xs sm:text-sm tracking-[0.35em] uppercase text-pink-200/70 mt-3 font-sans font-medium drop-shadow-md';
+          subtext.textContent = '永遠の桜 · forever in bloom';
+
+          textContainer.appendChild(heading);
+          textContainer.appendChild(subtext);
+          overlay.appendChild(textContainer);
+
+          // Append to body
+          document.body.appendChild(overlay);
+
+          // Fade in smoothly over 1s (opacity-0 to opacity-100)
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              overlay.classList.remove('opacity-0');
+              overlay.classList.add('opacity-100');
+            });
+          });
+
+          // Also highlight footer element
+          const copyrightEl = document.getElementById('footerCopyright');
+          if (copyrightEl) {
+            const existingEgg = document.getElementById('norikoEasterEgg');
+            if (existingEgg) existingEgg.remove();
+            const span = document.createElement('span');
+            span.id = 'norikoEasterEgg';
+            span.className = 'text-xs text-pink-200/70 drop-shadow-md ml-2 opacity-0 transition-opacity duration-1000 inline-block font-sans select-none';
+            span.textContent = 'Dedicated to Noriko';
+            copyrightEl.appendChild(span);
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                span.classList.remove('opacity-0');
+                span.classList.add('opacity-100');
+              });
+            });
+          }
+
+          // 5. 12-Second Disappearance: Fade out over 2 seconds, then remove from DOM
+          clearTimeout(fadeOutTimer);
+          clearTimeout(removeTimer);
+          fadeOutTimer = setTimeout(() => {
+            overlay.style.transition = 'opacity 2s ease';
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+
+            const footerEgg = document.getElementById('norikoEasterEgg');
+            if (footerEgg) {
+              footerEgg.style.transition = 'opacity 2s ease';
+              footerEgg.classList.remove('opacity-100');
+              footerEgg.classList.add('opacity-0');
+            }
+
+            removeTimer = setTimeout(() => {
+              if (overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
+              }
+              if (footerEgg && footerEgg.parentNode) {
+                footerEgg.parentNode.removeChild(footerEgg);
+              }
+            }, 2000);
+          }, 12000);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      clearTimeout(fadeOutTimer);
+      clearTimeout(removeTimer);
+      const overlay = document.getElementById('norikoEasterEggOverlay');
+      if (overlay && overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-neutral-900 text-neutral-100 selection:bg-neutral-100 selection:text-neutral-900 relative overflow-x-hidden font-sans">
       {/* Background Ambient Lighting Mesh */}
@@ -914,8 +1060,8 @@ export default function App() {
           </div>
 
           {/* Copyright & Location Note */}
-          <div className="text-xs text-neutral-500 pt-2 text-interactive">
-            © {new Date().getFullYear()} Rumeth Thawasara · Nittabuwa, Sri Lanka · All Rights Reserved
+          <div id="footerCopyright" className="text-xs text-neutral-500 pt-2 text-interactive flex items-center justify-center flex-wrap">
+            <span>© {new Date().getFullYear()} Rumeth Thawasara · Nittabuwa, Sri Lanka · All Rights Reserved</span>
           </div>
 
         </div>

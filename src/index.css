@@ -145,3 +145,33 @@
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), 0 12px 30px rgba(0, 0, 0, 0.8);
 }
+
+/* Sakura Rain Animation Keyframes */
+@keyframes sakuraFall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg) scale(0.7);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.95;
+  }
+  88% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(var(--sakura-drift, 60px), 110vh, 0) rotate(var(--sakura-rot, 360deg)) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.sakura-petal {
+  position: absolute;
+  top: -40px;
+  user-select: none;
+  pointer-events: none;
+  animation-name: sakuraFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
