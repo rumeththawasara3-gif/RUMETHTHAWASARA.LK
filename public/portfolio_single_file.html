@@ -725,7 +725,7 @@
     </div>
   </footer>
 
-  <!-- 2. INLINE JAVASCRIPT: Scroll Animations & Marquee Interactions -->
+  <!-- INLINE JAVASCRIPT: Scroll Animations & Marquees -->
   <script>
     (function() {
       // 1. Hero Profile Image Parallax & Dynamic Scaling on Scroll
@@ -750,7 +750,7 @@
 
       window.addEventListener('scroll', onScroll, { passive: true });
 
-      // 2. Marquee Hover Pause JavaScript Interaction (Supports both touch and desktop)
+      // 3. Marquee Hover Pause JavaScript Interaction (Row level pause)
       const marqueeRows = document.querySelectorAll('.marquee-row');
       marqueeRows.forEach(function(row) {
         const track = row.querySelector('.animate-marquee-infinite, .animate-marquee-slow');
