@@ -179,12 +179,23 @@ export default function App() {
             href="#hero" 
             className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] uppercase text-neutral-200 hover:text-white whitespace-nowrap shrink-0 text-interactive transition-colors"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
+            {/* The Secret 'N' Interactive Dot Container */}
+            <span className="group relative flex items-center justify-center w-2 h-2 transition-transform duration-300 hover:scale-125 cursor-pointer">
+              {/* Default State: Solid white dot */}
+              <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)] transition-all duration-300 group-hover:opacity-0" />
+              {/* Hover State: Glowing sleek sans-serif 'N' */}
+              <span className="absolute inset-0 flex items-center justify-center text-[11px] font-extrabold font-sans text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-[0_0_8px_rgba(255,255,255,0.95)] leading-none select-none">
+                N
+              </span>
+            </span>
             <span>RUMETH THAWASARA</span>
           </a>
 
           {/* Zone 2: 4-5 single-line clean nav links */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
+            <a href="#biography" className="hover:text-white transition-colors text-interactive whitespace-nowrap shrink-0">
+              Biography
+            </a>
             <a href="#projects-music" className="hover:text-white transition-colors text-interactive whitespace-nowrap shrink-0">
               Projects: Music
             </a>
@@ -192,10 +203,7 @@ export default function App() {
               YT Lives
             </a>
             <a href="#directing" className="hover:text-white transition-colors text-interactive whitespace-nowrap shrink-0">
-              Directing
-            </a>
-            <a href="#biography" className="hover:text-white transition-colors text-interactive whitespace-nowrap shrink-0">
-              Biography
+              Executions
             </a>
             <a href="#contact" className="hover:text-white transition-colors text-interactive whitespace-nowrap shrink-0">
               Contact
@@ -494,7 +502,74 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 1: PROJECTS: MUSIC (HORIZONTAL INFINITE MARQUEE) */}
+        {/* SECTION 2: BIOGRAPHY (THE STORY) */}
+        <section id="biography" className="py-24 px-6 bg-neutral-900 border-t border-neutral-800">
+          <div className="max-w-6xl mx-auto space-y-12">
+            
+            {/* Section Header */}
+            <div className="space-y-3">
+              <span className="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold block text-interactive">
+                THE STORY
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight text-interactive">
+                Bridging Raw Art with Strategic Discipline.
+              </h2>
+            </div>
+
+            {/* Grid Layout (The Visuals): 3 cols on desktop, 1 col on mobile, gap-6 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Card 1 Content: The Origin */}
+              <div className="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
+                <div className="space-y-4">
+                  <span className="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
+                    01 / THE ORIGIN
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
+                    At just 15, he didn't just consume media—he engineered it.
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                    What started as self-taught beat-making on FL Studio rapidly scaled into international collaborations. When he picked up a camera as his school's Media President, a hobby instantly became a profession, directing commercial campaigns and live events.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2 Content: The Edge */}
+              <div className="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
+                <div className="space-y-4">
+                  <span className="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
+                    02 / THE EDGE
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
+                    Where raw creativity meets strict financial discipline.
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                    Backed by AAT and Commerce studies, Rumeth operates at a rare intersection. He doesn't just make things look and sound cinematic—he understands the mechanics of building sustainable, scalable digital businesses.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 Content: The Evolution */}
+              <div className="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
+                <div className="space-y-4">
+                  <span className="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
+                    03 / THE EVOLUTION
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
+                    Growth demands sacrifice and calculated pivots.
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                    The release of the album DEATH OF AN ARTIST marked the intentional closure of Kult Studio. It wasn't an end, but an evolution to conquer workload fatigue. Today, he quietly builds the next era of digital media with Loop.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* SECTION 3: PROJECTS: MUSIC (HORIZONTAL INFINITE MARQUEE) */}
         <section id="projects-music" className="py-20 border-t border-neutral-800/90 bg-neutral-950/60 relative overflow-hidden">
           
           {/* Header & Subheader */}
@@ -738,73 +813,6 @@ export default function App() {
               </div>
 
             </div>
-          </div>
-        </section>
-
-        {/* SECTION 4: BIOGRAPHY (THE STORY) */}
-        <section id="biography" className="py-24 px-6 bg-neutral-900 border-t border-neutral-800">
-          <div className="max-w-6xl mx-auto space-y-12">
-            
-            {/* Section Header */}
-            <div className="space-y-3">
-              <span className="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold block text-interactive">
-                THE STORY
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight text-interactive">
-                Bridging Raw Art with Strategic Discipline.
-              </h2>
-            </div>
-
-            {/* Grid Layout (The Visuals): 3 cols on desktop, 1 col on mobile, gap-6 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              {/* Card 1 Content: The Origin */}
-              <div className="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
-                <div className="space-y-4">
-                  <span className="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
-                    01 / THE ORIGIN
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
-                    At just 15, he didn't just consume media—he engineered it.
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
-                    What started as self-taught beat-making on FL Studio rapidly scaled into international collaborations. When he picked up a camera as his school's Media President, a hobby instantly became a profession, directing commercial campaigns and live events.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 2 Content: The Edge */}
-              <div className="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
-                <div className="space-y-4">
-                  <span className="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
-                    02 / THE EDGE
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
-                    Where raw creativity meets strict financial discipline.
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
-                    Backed by AAT and Commerce studies, Rumeth operates at a rare intersection. He doesn't just make things look and sound cinematic—he understands the mechanics of building sustainable, scalable digital businesses.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 3 Content: The Evolution */}
-              <div className="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
-                <div className="space-y-4">
-                  <span className="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
-                    03 / THE EVOLUTION
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
-                    Growth demands sacrifice and calculated pivots.
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
-                    The release of the album DEATH OF AN ARTIST marked the intentional closure of Kult Studio. It wasn't an end, but an evolution to conquer workload fatigue. Today, he quietly builds the next era of digital media with Loop.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
           </div>
         </section>
 

@@ -176,14 +176,22 @@
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
       <!-- Top-left navigation element with white dot and spaced uppercase text -->
       <a href="#hero" class="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] uppercase text-neutral-200 hover:text-white whitespace-nowrap shrink-0 text-interactive transition-colors">
-        <span class="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]"></span>
+        <!-- The Secret 'N' Interactive Dot Container -->
+        <span class="group relative flex items-center justify-center w-2 h-2 transition-transform duration-300 hover:scale-125 cursor-pointer">
+          <!-- Default State: Solid white dot -->
+          <span class="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)] transition-all duration-300 group-hover:opacity-0"></span>
+          <!-- Hover State: Glowing sleek sans-serif 'N' -->
+          <span class="absolute inset-0 flex items-center justify-center text-[11px] font-extrabold font-sans text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-[0_0_8px_rgba(255,255,255,0.95)] leading-none select-none">
+            N
+          </span>
+        </span>
         <span>RUMETH THAWASARA</span>
       </a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
+        <a href="#biography" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Biography</a>
         <a href="#projects-music" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Music</a>
         <a href="#yt-lives" class="hover:text-white transition-colors text-interactive whitespace-nowrap">YT Lives</a>
-        <a href="#directing" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Directing</a>
-        <a href="#biography" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Biography</a>
+        <a href="#directing" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Executions</a>
         <a href="#contact" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Contact</a>
       </nav>
       <div class="flex items-center gap-3 shrink-0">
@@ -315,6 +323,73 @@
               </div>
             </div>
 
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Biography Section (The Story) -->
+    <section id="biography" class="py-24 px-6 bg-neutral-900 border-t border-neutral-800">
+      <div class="max-w-6xl mx-auto space-y-12">
+        
+        <!-- Section Header -->
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold block text-interactive">
+            THE STORY
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight text-interactive">
+            Bridging Raw Art with Strategic Discipline.
+          </h2>
+        </div>
+
+        <!-- Grid Layout (The Visuals): 3 cols on desktop, 1 col on mobile, gap-6 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 1 Content: The Origin -->
+          <div class="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
+            <div class="space-y-4">
+              <span class="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
+                01 / THE ORIGIN
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                At just 15, he didn't just consume media—he engineered it.
+              </h3>
+              <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                What started as self-taught beat-making on FL Studio rapidly scaled into international collaborations. When he picked up a camera as his school's Media President, a hobby instantly became a profession, directing commercial campaigns and live events.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 Content: The Edge -->
+          <div class="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
+            <div class="space-y-4">
+              <span class="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
+                02 / THE EDGE
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                Where raw creativity meets strict financial discipline.
+              </h3>
+              <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                Backed by AAT and Commerce studies, Rumeth operates at a rare intersection. He doesn't just make things look and sound cinematic—he understands the mechanics of building sustainable, scalable digital businesses.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 Content: The Evolution -->
+          <div class="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
+            <div class="space-y-4">
+              <span class="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
+                03 / THE EVOLUTION
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                Growth demands sacrifice and calculated pivots.
+              </h3>
+              <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                The release of the album DEATH OF AN ARTIST marked the intentional closure of Kult Studio. It wasn't an end, but an evolution to conquer workload fatigue. Today, he quietly builds the next era of digital media with Loop.
+              </p>
+            </div>
           </div>
 
         </div>
@@ -635,73 +710,6 @@
         <p class="text-neutral-400 max-w-2xl text-interactive">
           Harmonizing high-end cinematography with custom rap and ambient audio engineering for complete creative control.
         </p>
-      </div>
-    </section>
-
-    <!-- Biography Section (The Story) -->
-    <section id="biography" class="py-24 px-6 bg-neutral-900 border-t border-neutral-800">
-      <div class="max-w-6xl mx-auto space-y-12">
-        
-        <!-- Section Header -->
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold block text-interactive">
-            THE STORY
-          </span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight text-interactive">
-            Bridging Raw Art with Strategic Discipline.
-          </h2>
-        </div>
-
-        <!-- Grid Layout (The Visuals): 3 cols on desktop, 1 col on mobile, gap-6 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <!-- Card 1 Content: The Origin -->
-          <div class="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
-            <div class="space-y-4">
-              <span class="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
-                01 / THE ORIGIN
-              </span>
-              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                At just 15, he didn't just consume media—he engineered it.
-              </h3>
-              <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
-                What started as self-taught beat-making on FL Studio rapidly scaled into international collaborations. When he picked up a camera as his school's Media President, a hobby instantly became a profession, directing commercial campaigns and live events.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2 Content: The Edge -->
-          <div class="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
-            <div class="space-y-4">
-              <span class="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
-                02 / THE EDGE
-              </span>
-              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                Where raw creativity meets strict financial discipline.
-              </h3>
-              <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
-                Backed by AAT and Commerce studies, Rumeth operates at a rare intersection. He doesn't just make things look and sound cinematic—he understands the mechanics of building sustainable, scalable digital businesses.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 Content: The Evolution -->
-          <div class="bg-neutral-800/40 border border-neutral-700 rounded-2xl p-8 hover:-translate-y-1 hover:border-gray-400 transition-all duration-300 flex flex-col justify-between space-y-6 group">
-            <div class="space-y-4">
-              <span class="text-xs font-mono font-semibold tracking-wider text-emerald-400 block">
-                03 / THE EVOLUTION
-              </span>
-              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                Growth demands sacrifice and calculated pivots.
-              </h3>
-              <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
-                The release of the album DEATH OF AN ARTIST marked the intentional closure of Kult Studio. It wasn't an end, but an evolution to conquer workload fatigue. Today, he quietly builds the next era of digital media with Loop.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </section>
 
