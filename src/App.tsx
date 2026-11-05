@@ -174,12 +174,13 @@ export default function App() {
       {/* Top Bar Navigation (Strict 3-Zone Contract) */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-neutral-900/80 border-b border-neutral-800/80 transition-colors">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
-          {/* Zone 1: Single text element wordmark */}
+          {/* Zone 1: Small top-left navigation element with white dot and uppercase spaced text */}
           <a 
             href="#hero" 
-            className="text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 text-interactive"
+            className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] uppercase text-neutral-200 hover:text-white whitespace-nowrap shrink-0 text-interactive transition-colors"
           >
-            Rumeth Thawasara
+            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
+            <span>RUMETH THAWASARA</span>
           </a>
 
           {/* Zone 2: 4-5 single-line clean nav links */}
@@ -242,29 +243,41 @@ export default function App() {
                 </span>
               </div>
 
-              {/* Big Bold Header */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] text-interactive text-balance">
-                Rumeth Thawasara
+              {/* Massive, Bold, All-Caps Main Header Split onto Two Lines */}
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.92] text-interactive">
+                <span className="block">RUMETH</span>
+                <span className="block">THAWASARA</span>
               </h1>
 
-              {/* Role Title Line */}
-              <div className="text-base sm:text-lg font-medium text-neutral-300 text-interactive flex items-center gap-2">
-                <span>Director</span>
-                <span className="text-neutral-600">/</span>
-                <span>Producer</span>
-                <span className="text-neutral-600">/</span>
-                <span>Digital Marketer</span>
+              {/* Dark Pill-Shaped Badges with Thin Borders and Small Uppercase Text */}
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+                <span className="px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-700/80 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 shadow-sm text-interactive">
+                  CO-FOUNDER • LOOP STUDIOS
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-700/80 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 shadow-sm text-interactive">
+                  FOUNDER • KULT STUDIO
+                </span>
               </div>
 
-              {/* Bio Text */}
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-normal text-interactive">
-                Rumeth Thawasara (born July 12, 2008) is a Director, Producer, and Digital Marketer based in Nittabuwa, Sri Lanka. As a multidisciplinary creative professional, he bridges the gap between high-end audiovisual production and strategic digital marketing.
-              </p>
+              {/* About Me Section Label */}
+              <div className="pt-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 block text-interactive">
+                  ABOUT ME
+                </span>
+              </div>
 
-              {/* Second Paragraph */}
-              <p className="text-sm sm:text-base text-neutral-400 leading-relaxed text-interactive">
-                He specializes in delivering cinematic visuals for commercial advertising and music videos. In addition to his visual directorial work, Rumeth operates as a dedicated audio engineer, with a distinct focus on producing and engineering sound for the rap and ambient music genres. By combining commercial marketing strategies with complete audiovisual production, he controls the entire creative direction of a project from the initial sound to the final visual cut.
-              </p>
+              {/* Bio Text Styling: Wrapped in container with distinct left-side vertical border */}
+              <div className="border-l-2 border-neutral-500 pl-4 sm:pl-5 space-y-4">
+                {/* Main Bio Text */}
+                <p className="text-base sm:text-lg text-neutral-200 leading-relaxed font-normal text-interactive">
+                  Rumeth Thawasara (born July 12, 2008) is a Director, Producer, and Digital Marketer based in Nittabuwa, Sri Lanka. As a multidisciplinary creative professional, he bridges the gap between high-end audiovisual production and strategic digital marketing.
+                </p>
+
+                {/* Second Paragraph */}
+                <p className="text-sm sm:text-base text-neutral-400 leading-relaxed text-interactive">
+                  He specializes in delivering cinematic visuals for commercial advertising and music videos. In addition to his visual directorial work, Rumeth operates as a dedicated audio engineer, with a distinct focus on producing and engineering sound for the rap and ambient music genres. By combining commercial marketing strategies with complete audiovisual production, he controls the entire creative direction of a project from the initial sound to the final visual cut.
+                </p>
+              </div>
 
               {/* Action Buttons & Directorial Links */}
               <div className="pt-4 flex flex-wrap items-center gap-4">

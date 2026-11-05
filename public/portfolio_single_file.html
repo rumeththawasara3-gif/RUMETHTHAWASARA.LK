@@ -174,13 +174,15 @@
   <!-- Top Navigation Bar -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-neutral-900/80 border-b border-neutral-800">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
-      <a href="#hero" class="text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 text-interactive">
-        Rumeth Thawasara
+      <!-- Top-left navigation element with white dot and spaced uppercase text -->
+      <a href="#hero" class="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] uppercase text-neutral-200 hover:text-white whitespace-nowrap shrink-0 text-interactive transition-colors">
+        <span class="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]"></span>
+        <span>RUMETH THAWASARA</span>
       </a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
+        <a href="#projects-music" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Music</a>
+        <a href="#yt-lives" class="hover:text-white transition-colors text-interactive whitespace-nowrap">YT Lives</a>
         <a href="#directing" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Directing</a>
-        <a href="#audio" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Audio Production</a>
-        <a href="#marketing" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Digital Marketing</a>
         <a href="#contact" class="hover:text-white transition-colors text-interactive whitespace-nowrap">Contact</a>
       </nav>
       <div class="flex items-center gap-3 shrink-0">
@@ -210,29 +212,50 @@
             <span>Director & Audio Engineer</span>
           </div>
 
-          <!-- Big Bold Header -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] text-interactive">
-            Rumeth Thawasara
+          <!-- Main Title: Massive, bold, and all-caps, split onto two lines -->
+          <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.92] text-interactive">
+            <span class="block">RUMETH</span>
+            <span class="block">THAWASARA</span>
           </h1>
 
-          <!-- Bio Text -->
-          <p class="text-base sm:text-lg text-neutral-300 leading-relaxed font-normal text-interactive">
-            Rumeth Thawasara (born July 12, 2008) is a Director, Producer, and Digital Marketer based in Nittabuwa, Sri Lanka. As a multidisciplinary creative professional, he bridges the gap between high-end audiovisual production and strategic digital marketing.
-          </p>
+          <!-- Badges: Flex row of two dark pill-shaped badges with thin borders and uppercase text -->
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+            <span class="px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-700/80 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 shadow-sm text-interactive">
+              CO-FOUNDER • LOOP STUDIOS
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-700/80 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 shadow-sm text-interactive">
+              FOUNDER • KULT STUDIO
+            </span>
+          </div>
 
-          <!-- Second Paragraph -->
-          <p class="text-sm sm:text-base text-neutral-400 leading-relaxed text-interactive">
-            He specializes in delivering cinematic visuals for commercial advertising and music videos. In addition to his visual directorial work, Rumeth operates as a dedicated audio engineer, with a distinct focus on producing and engineering sound for the rap and ambient music genres. By combining commercial marketing strategies with complete audiovisual production, he controls the entire creative direction of a project from the initial sound to the final visual cut.
-          </p>
+          <!-- About Me Section Label -->
+          <div class="pt-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-neutral-400 block text-interactive">
+              ABOUT ME
+            </span>
+          </div>
+
+          <!-- Bio Text Styling: Wrapped in container with distinct left-side vertical border -->
+          <div class="border-l-2 border-neutral-500 pl-4 sm:pl-5 space-y-4">
+            <!-- Bio Text -->
+            <p class="text-base sm:text-lg text-neutral-200 leading-relaxed font-normal text-interactive">
+              Rumeth Thawasara (born July 12, 2008) is a Director, Producer, and Digital Marketer based in Nittabuwa, Sri Lanka. As a multidisciplinary creative professional, he bridges the gap between high-end audiovisual production and strategic digital marketing.
+            </p>
+
+            <!-- Second Paragraph -->
+            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed text-interactive">
+              He specializes in delivering cinematic visuals for commercial advertising and music videos. In addition to his visual directorial work, Rumeth operates as a dedicated audio engineer, with a distinct focus on producing and engineering sound for the rap and ambient music genres. By combining commercial marketing strategies with complete audiovisual production, he controls the entire creative direction of a project from the initial sound to the final visual cut.
+            </p>
+          </div>
 
           <!-- Actions -->
           <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="#directing" class="px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium rounded-lg border border-neutral-700 hover:border-neutral-500 transition-all flex items-center gap-2 text-interactive">
-              <span>Explore Directorial Works</span>
+            <a href="#projects-music" class="px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium rounded-lg border border-neutral-700 hover:border-neutral-500 transition-all flex items-center gap-2 text-interactive">
+              <span>Explore Music Projects</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#audio" class="px-6 py-3 bg-transparent hover:bg-neutral-800/60 text-neutral-300 hover:text-white text-sm font-medium rounded-lg border border-neutral-800 hover:border-neutral-600 transition-all text-interactive">
-              Sound Production
+            <a href="#yt-lives" class="px-6 py-3 bg-transparent hover:bg-neutral-800/60 text-neutral-300 hover:text-white text-sm font-medium rounded-lg border border-neutral-800 hover:border-neutral-600 transition-all text-interactive">
+              Watch YT Lives
             </a>
           </div>
 
